@@ -1,18 +1,34 @@
+import React from "react";
+import { Tooltip } from 'react-tooltip';
 
 interface  IAppButtonProps {
-  backgroundColor?: string;
   textColor?: string;
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
+  dataTooltipContent?: string;
+  onClick?: () => void;
+  style?: string;
+  padding: string;
 }
 
 export default function AppButton(props: IAppButtonProps) {
   console.log(props.backgroundColor);
+
   return (
-    <div>
-      <button
-        className={`${props.backgroundColor} rounded-xl border hover:bg-primary active:bg-primary focus:outline-none transition duration-200 ease-in-out`}>
-        <div className={`px-5 py-4 ${props.textColor}`}>{props.text}</div>
-      </button>
-    </div>
+    <>
+      <div>
+        <button onClick={props.onClick} data-tooltip-id="tooltip-default"  data-tooltip-content={props.dataTooltipContent}
+                data-tooltip-place="top"
+                className={props.style != null ? `${props.style} ` : `rounded-lg` + `hover:bg-gray-100 active:bg-gray-100 focus:outline-none transition duration-200 ease-in-out` }>
+          <div className="flex items-center justify-center px-2 py-2">
+            {props.children != null && props.children}
+            {props.text != null && <div className={`${props.textColor}`}>{props.text}</div>}
+          </div>
+        </button>
+      </div>
+      <Tooltip id="tooltip-default" style={{borderRadius: "10px",}} />
+    </>
+
+
   )
 }

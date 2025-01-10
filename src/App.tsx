@@ -3,7 +3,7 @@ import "./core/i18n/i18n.ts";
 function App() {
 
   return (
-   <div className="App px-16 pt-5">
+   <div className="App">
      <Router />
    </div>
   )
