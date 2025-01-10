@@ -8,11 +8,10 @@ interface  IAppButtonProps {
   dataTooltipContent?: string;
   onClick?: () => void;
   style?: string;
-  padding: string;
+  padding?: string;
 }
 
 export default function AppButton(props: IAppButtonProps) {
-  console.log(props.backgroundColor);
 
   return (
     <>
