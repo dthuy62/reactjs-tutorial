@@ -4,7 +4,6 @@ import HomePage from "../pages/home/HomePage.tsx";
 
 
 export default function Router() {
-  console.log('fsdffdfdfsdsdffdsfsdsdfdsfdsdsfdf')
   return (
     <BrowserRouter>
       <Routes>
